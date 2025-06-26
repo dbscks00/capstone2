@@ -1,3 +1,4 @@
+<!--
 <p align="center">
   <img src="./assets/sapiens_animation.gif" alt="Sapiens" title="Sapiens" width="500"/>
 </p>
@@ -137,3 +138,14 @@ If you use Sapiens in your research, please consider citing us.
   year={2024}
 }
 ```
+-->
+
+# Capstone 2 프로젝트
+
+이 저장소는 sapiens 기반 모델을 활용하여 커스터마이징한 인공지능 시각처리 파이프라인입니다.
+- 사용 모델: SAPIENS (ECCV 2024)
+- 구현자: dbscks00
+- 주요 파일:
+  - `game.py`: 시각화 기반 인터랙션
+  - `server.py`: inference 서버
+  - `output_image/`: 결과물 저장
