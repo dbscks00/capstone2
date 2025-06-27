@@ -141,11 +141,41 @@ If you use Sapiens in your research, please consider citing us.
 -->
 
 # Capstone 2 프로젝트
+# 🧠 Human Part Segmentation 기반 눈바디 데이터화 프로젝트
 
-이 저장소는 sapiens 기반 모델을 활용하여 커스터마이징한 인공지능 시각처리 파이프라인입니다.
-- 사용 모델: SAPIENS (ECCV 2024)
-- 구현자: dbscks00
-- 주요 파일:
-  - `game.py`: 시각화 기반 인터랙션
-  - `server.py`: inference 서버
-  - `output_image/`: 결과물 저장
+본 프로젝트는 인체 부위 분할(Human Part Segmentation) 및 자세 추정(Pose Estimation) 기술을 활용하여 개인의 신체 변화를 자동으로 시각화하고 분석하는 시스템을 구축하는 것을 목표로 합니다. 사용자는 전신 정면 사진을 업로드함으로써 자신의 신체 데이터를 시각적으로 확인하고 변화 추이를 파악할 수 있습니다.
+
+---
+
+## 📌 프로젝트 개요
+
+- **목표**: 눈바디(Body-check) 이미지 기반으로 신체 부위별 변화를 자동 추출하고, GIF 등으로 시각화하여 사용자가 쉽게 피드백 받을 수 있도록 지원
+- **핵심 기능**
+  - SAPIE 기반 인체 분할
+  - Detectron2를 활용한 포즈 추정
+  - 부위별 면적 계산을 통한 변화 추정
+  - GIF 생성 및 시각화 이미지 저장
+- **사용자 흐름**
+  1. 정면 전신 사진 업로드
+  2. 인체 부위 분할 및 포즈 추정
+  3. 부위별 면적 계산 및 시각화
+  4. 결과 이미지 및 GIF 저장/확인
+
+---
+
+## 📁 프로젝트 구조
+
+capstone2/
+│
+├── input_image/ # 사용자 업로드 이미지 폴더
+├── output_image/ # 처리된 결과 이미지 저장 폴더
+├── seg/ # SAPIE 기반 분할 모듈
+├── pose/ # Detectron2 기반 포즈 추정 모듈
+├── estimate_muscle/ # 근육량 계산 관련 코드
+├── demo/ # 데모 실행 샘플
+├── docs/ # 보고서 등 문서 자료
+├── image_resize.py # 이미지 크기 정규화 유틸
+├── make_gif.py # 결과 이미지 기반 GIF 생성기
+├── game.py # 메인 실행 스크립트 (콘솔 기반)
+├── server.py # Flask 기반 웹 서버 실행 파일
+└── output.gif # 최종 비교 결과를 담은 GIF 파일
